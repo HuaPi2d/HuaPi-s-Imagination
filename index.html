@@ -3,32 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>资源分享平台</title>
+    <title>画皮的百宝箱</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header class="header">
-        <h1>资源分享平台</h1>
+        <h1>画皮的百宝箱</h1>
     </header>
     <main class="content">
-        <section class="upload-section">
-            <h2>分享资源</h2>
-            <form id="uploadForm">
-                <input type="text" id="resourceName" placeholder="资源名称" required>
-                <input type="url" id="resourceLink" placeholder="资源链接" required>
-                <textarea id="resourceDescription" placeholder="资源描述" rows="4"></textarea>
-                <button type="submit">上传资源</button>
-            </form>
-        </section>
-        <section class="resource-list">
-            <h2>资源列表</h2>
-            <ul id="resourceContainer">
-                <!-- 资源列表项将动态添加 -->
-            </ul>
-        </section>
+        <div class="container">
+            <h1>HuaPi2D 最新版下载</h1>
+            <p id="version-info">正在检查最新版本...</p>
+            <button id="download-button" disabled>下载</button>
+        </div>
+        <script src="getLatestDownloadUrl.js"></script>
     </main>
     <footer class="footer">
-        <p>© 2024 资源分享平台</p>
+        <p>© 2024 HuaPi2D</p>
     </footer>
     <script src="script.js"></script>
 </body>
