@@ -6,6 +6,7 @@ const fileName = "HuaPi2D_SetUp.msi";
 // DOM Elements
 const versionInfo = document.getElementById("version-info");
 const downloadButton = document.getElementById("download-button");
+const speedUpDownloadButton = document.getElementById("speed-up-download-button");
 
 // Fetch Latest Release from GitHub
 async function fetchLatestRelease() {
@@ -25,8 +26,20 @@ async function fetchLatestRelease() {
         if (asset) {
             versionInfo.textContent = `最新版本: ${latestVersion}`;
             downloadButton.disabled = false;
+            speedUpDownloadButton.disabled = false;
+
+            // Generate accelerated URL
+            const acceleratedUrl = asset.browser_download_url.replace(
+                "https://github.com",
+                "https://gh.api.99988866.xyz/github.com"
+            );
+
+            // Set Button Action
             downloadButton.addEventListener("click", () => {
                 window.location.href = asset.browser_download_url;
+            });
+            speedUpDownloadButton.addEventListener("click", () => {
+                window.location.href = acceleratedUrl;
             });
         } else {
             versionInfo.textContent = "未找到可用的安装文件。";
