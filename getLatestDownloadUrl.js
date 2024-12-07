@@ -39,6 +39,7 @@ async function fetchLatestRelease() {
                 window.location.href = asset.browser_download_url;
             });
             speedUpDownloadButton.addEventListener("click", () => {
+                console.log(acceleratedUrl);
                 window.location.href = acceleratedUrl;
             });
         } else {
