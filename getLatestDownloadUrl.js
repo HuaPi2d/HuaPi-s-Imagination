@@ -1,7 +1,7 @@
 // GitHub Repository Information
 const owner = "HuaPi2d"; // 替换为仓库拥有者
 const repo = "HuaPi2d"; // 替换为仓库名称
-const fileName = "HuaPi2D_SetUp.msi";
+const fileName = "HuaPi2D_SetUp.msi"; // 替换为文件名
 
 // DOM Elements
 const versionInfo = document.getElementById("version-info");
@@ -29,19 +29,20 @@ async function fetchLatestRelease() {
             speedUpDownloadButton.disabled = false;
 
             // Generate accelerated URL
-            const acceleratedUrl = asset.browser_download_url.replace(
+            const originalUrl = asset.browser_download_url;
+            const acceleratedUrl = originalUrl.replace(
                 "https://github.com",
                 "https://gh.api.99988866.xyz/github.com"
             );
 
-            // Set Button Action
-            downloadButton.addEventListener("click", () => {
-                window.location.href = asset.browser_download_url;
-            });
-            speedUpDownloadButton.addEventListener("click", () => {
-                console.log(acceleratedUrl);
+            // Set Button Action (bind only once)
+            downloadButton.onclick = () => {
+                window.location.href = originalUrl;
+            };
+            speedUpDownloadButton.onclick = () => {
+                console.log("Accelerated URL:", acceleratedUrl);
                 window.location.href = acceleratedUrl;
-            });
+            };
         } else {
             versionInfo.textContent = "未找到可用的安装文件。";
         }
@@ -53,3 +54,4 @@ async function fetchLatestRelease() {
 
 // Initialize
 fetchLatestRelease();
+
